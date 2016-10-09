@@ -78,4 +78,33 @@
         android:id="@+id/tvResult"
         android:gravity="center_horizontal">
     </TextView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:id="@+id/LinerView"
+        android:weightSum="3">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Style1"
+            android:id="@+id/style_button1"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Style2"
+            android:id="@+id/style_button2"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Style3"
+            android:id="@+id/style_button3"
+            android:layout_weight="1" />
+    </LinearLayout>
 </LinearLayout>
