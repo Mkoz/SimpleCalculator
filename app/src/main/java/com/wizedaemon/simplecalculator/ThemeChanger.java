@@ -12,29 +12,29 @@ public class ThemeChanger {
     public final static int STYLE1 = 0;
     public final static int STYLE2 = 1;
     public final static int STYLE3 = 2;
-    public static void changeToTheme(Activity activity, int theme)
+    public static void setTheme( int theme)
     {
-        //sTheme = theme;
-        activity.finish();
+        sTheme = theme;
 
-        activity.startActivity(new Intent(activity, activity.getClass()));
+
+        //activity.startActivity(new Intent(activity, activity.getClass()));
+        //activity.recreate();
 
     }
 
-    public static void onActivityCreateSetTheme(Activity activity, int sTheme)
-    {
+    public static int getThemeId () {
         switch (sTheme)
         {
             default:
             case STYLE1:
-                activity.setTheme(R.style.Style1);
-                break;
+                return R.style.Style1;
+                //break;
             case STYLE2:
-                activity.setTheme(R.style.Style2);
-                break;
+               return R.style.Style2;
+                //break;
             case STYLE3:
-                activity.setTheme(R.style.Style3);
-                break;
+                return R.style.Style3;
+                //break;
         }
     }
 }

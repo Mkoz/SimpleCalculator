@@ -2,9 +2,11 @@ package com.wizedaemon.simplecalculator;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.ContextThemeWrapper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,17 +34,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView tvResult;
 
     String oper = "";
-    Activity this_act;
+    //int currentTheme;
+
+
 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //ThemeChanger.onActivityCreateSetTheme(this);
+        //ThemeChanger.onActivityCreateSetTheme(this, currentTheme);
+
+        Log.v("SimpleCalck", "currentTheme " + ThemeChanger.getThemeId());
+
+        setTheme(ThemeChanger.getThemeId());
         setContentView(R.layout.activity_main);
 
         // находим элементы
-        this_act = this.getParent();
+        //linerLayot = (View) findViewById(R.id.parentLayout);
+        //this_act = linerLayot.getParent();
         etNum1 = (EditText) findViewById(R.id.etNum1);
         etNum2 = (EditText) findViewById(R.id.etNum2);
 
@@ -147,15 +156,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
 
                 case R.id.style_button1:
-                    ThemeChanger.changeToTheme(this_act,ThemeChanger.STYLE1);
+                    ThemeChanger.setTheme(ThemeChanger.STYLE1);
                     break;
                 case R.id.style_button2:
-                    ThemeChanger.changeToTheme(this_act,ThemeChanger.STYLE2);
+                    ThemeChanger.setTheme(ThemeChanger.STYLE2);
                     break;
                 case R.id.style_button3:
-                    ThemeChanger.changeToTheme(this_act,ThemeChanger.STYLE3);
+                    ThemeChanger.setTheme(ThemeChanger.STYLE3);
                     break;
             }
+           // Log.v("SimpleCalck", "currentTheme2 " + currentTheme);
+            Intent intent = getIntent();
+            finish();
+            //setTheme(currentTheme);
+            //Log.v("SimpleCalck", "currentTheme3 " + currentTheme);
+            startActivity(intent);
+            //Log.v("SimpleCalck", "currentTheme4 " + currentTheme);
         }
 
     };
